@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Iqbal</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ffd6e7, #fff0b3, #d6e8ff);
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 30px auto;
+      background: rgba(255,255,255,0.9);
+      border-radius: 30px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      text-align: center;
+      position: relative;
+    }
+
+    h1 {
+      color: #ff4f87;
+      font-size: 50px;
+    }
+
+    h2 {
+      color: #333;
+    }
+
+    p {
+      color: #555;
+      line-height: 1.8;
+    }
+
+    button {
+      background: #ff4f87;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 20px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      background: #ff2f72;
+    }
+
+    #gameArea {
+      position: relative;
+      height: 500px;
+      background: linear-gradient(to bottom, #d6e8ff, #ffe0ef);
+      border-radius: 30px;
+      overflow: hidden;
+      margin-top: 20px;
+      display: none;
+    }
+
+    #cat {
+      position: absolute;
+      font-size: 70px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    #cat:hover {
+      transform: scale(1.2);
+    }
+
+    .photo-box {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: white;
+      padding: 10px;
+      border-radius: 20px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    }
+
+    .photo-box img {
+      width: 180px;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 15px;
+    }
+
+    .wish-box {
+      background: #fff0f6;
+      padding: 25px;
+      border-radius: 25px;
+      margin-top: 20px;
+      text-align: left;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 15px;
+      border-radius: 15px;
+      border: 1px solid #ffc0d6;
+      margin-top: 10px;
+      box-sizing: border-box;
+    }
+
+    textarea {
+      resize: none;
+    }
+
+    #birthdaySection {
+      display: none;
+    }
+
+    .romantic {
+      color: #ff4f87;
+      font-style: italic;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    audio {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <audio autoplay loop controls id="bgMusic">
+      <source src="lagu.mp3" type="audio/mpeg">
+    </audio>
+
+    <p style="color:#ff4f87; font-weight:bold;">
+      
+    </p>
+
+    <div id="startSection">
+      <h1>Selamat Ulang Tahun 🎉</h1>
+      <h2>Mochammad Iqbal Ridhowi SAYANGKUU CINTAKUUU 🎂</h2>
+
+      <p>
+        Sebelum masuk ke ucapan spesial, ada tantangan penting dulu 😼<br>
+        Tangkap kucing sebanyak-banyaknya dalam 15 detik!
+      </p>
+
+      <button onclick="startGame()">Mulai Game Kucing 🐾</button>
+    </div>
+
+    <div id="gameArea">
+      <h2 id="score" style="padding-top:10px;">Score: 0</h2>
+      <div id="cat">🐱</div>
+
+      <p style="position:absolute; bottom:10px; width:100%; text-align:center;">
+        Cepetan tangkap kucingnya sebelum kabur 😭
+      </p>
+    </div>
+
+    <div id="birthdaySection">
+      <h1>🎉 Happy Birthday Iqbal 🎉</h1>
+
+      <p>
+        Selamat ulang tahun yang ke-22 yaa, sayangku Mochammad Iqbal Ridhowi 🥳💖
+      </p>
+
+      <div style="display:flex; justify-content:center; margin:25px 0;">
+        <div class="photo-box" style="position:static;">
+          <img src="foto.jpg" alt="Foto Kalian">
+          <p style="font-size:14px; color:#ff4f87; font-weight:bold; text-align:center;">
+           
+          </p>
+        </div>
+      </div>
+
+      <p>
+        Semoga di umur yang baru ini semua hal baik makin deket sama kamu,
+        rezekinya lancar, hatinya tenang, cita-citanya tercapai, dan semoga
+        kamu selalu bahagia. Aku juga berharap semoga hubungan kita selalu
+        dipenuhi hal-hal baik, makin kuat, makin langgeng, dan selalu saling
+        sayang sampai kapanpun 🤍
+      </p>
+
+      <p id="finalScore"></p>
+
+      <p class="romantic">
+        — oleh Vika, pacar tersayangmu 💌
+      </p>
+
+      <form action="https://formsubmit.co/chsvikaa@gmail.com" method="POST" class="wish-box">
+
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_subject" value="Harapan Ulang Tahun Iqbal 🎂">
+
+        <h2 style="text-align:center; color:#ff4f87;">
+          Tulis Harapan di Umur 22 ✨
+        </h2>
+
+        <input type="text" name="Nama" placeholder="Nama kamu" required>
+
+        <textarea name="Harapan" rows="6" placeholder="Tulis harapan, doa, atau hal yang pengen dicapai tahun ini..." required></textarea>
+
+        <button type="submit" style="width:100%; margin-top:15px;">
+          Kirim Harapan 💌
+        </button>
+      </form>
+    </div>
+
+  </div>
+
+  <script>
+    let score = 0;
+    let gameInterval;
+    let moveInterval;
+
+    const cat = document.getElementById('cat');
+    const scoreText = document.getElementById('score');
+
+    function startGame() {
+      document.getElementById('startSection').style.display = 'none';
+      document.getElementById('gameArea').style.display = 'block';
+
+      moveCat();
+
+      moveInterval = setInterval(moveCat, 700);
+
+      gameInterval = setTimeout(() => {
+        endGame();
+      }, 15000);
+    }
+
+    function moveCat() {
+      const top = Math.random() * 80;
+      const left = Math.random() * 80;
+
+      cat.style.top = top + '%';
+      cat.style.left = left + '%';
+    }
+
+    cat.addEventListener('click', () => {
+      score++;
+      scoreText.innerHTML = 'Score: ' + score;
+    });
+
+    function endGame() {
+      clearInterval(moveInterval);
+
+      document.getElementById('gameArea').style.display = 'none';
+      document.getElementById('birthdaySection').style.display = 'block';
+
+      document.getElementById('finalScore').innerHTML =
+        'Dan btw... score kamu tadi <b style="color:#ff4f87;">' + score + '</b> 😼';
+    }
+  const music = document.getElementById('bgMusic');
+
+    // bantu autoplay di browser
+    window.addEventListener('load', () => {
+      const playPromise = music.play();
+
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          document.body.addEventListener('click', () => {
+            music.play();
+          }, { once: true });
+        });
+      }
+    });
+  </script>
+
+</body>
+</html>
